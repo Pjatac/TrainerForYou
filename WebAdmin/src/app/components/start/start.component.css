@@ -1,0 +1,17 @@
+mat-form-field {
+    width: 20em;
+    text-align: center;
+}
+form {
+    width: 22em;
+    border-radius: 2em;
+    border: solid;
+}
+.mainContainer{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}

@@ -1,4 +1,4 @@
-import { prop, Ref, Typegoose } from 'typegoose';
+import { prop, Ref, Typegoose } from '@typegoose/typegoose';
 import { Languages } from '../enums';
 import { User } from '../user/user.model';
 import { Translator } from '../translator/translator.model';
@@ -20,6 +20,6 @@ export class Dictionary extends Typegoose {
   @prop({required: true})
   outLanguage: Languages;
 
-  @prop({required: false, ref: Translator})
-  translators: Ref<Translator[]>;
+  @prop({itemsRef: 'Translator'})
+  translators?: Ref<Translator>[];
 }

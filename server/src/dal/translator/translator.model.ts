@@ -1,4 +1,4 @@
-import { prop, Ref, Typegoose } from 'typegoose';
+import { prop, Ref, Typegoose } from '@typegoose/typegoose';
 import { Word } from '../word/word.model';
 
 import { ObjectID } from 'bson';

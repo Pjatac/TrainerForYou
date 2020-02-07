@@ -1,0 +1,7 @@
+<div *ngIf="_guard.isAuth">
+    <a style="margin: 1em" mat-raised-button routerLink="/stat" routerLinkActive="active">Statistic</a>
+    <a style="margin: 1em" mat-raised-button routerLink="/lang" routerLinkActive="active">Languages</a>
+    <a style="margin: 1em" mat-raised-button routerLink="/dict" routerLinkActive="active">Dictionaries</a>
+    <a style="margin: 1em" mat-raised-button routerLink="/edit" routerLinkActive="active">Edit data</a>
+    <a style="margin: 1em" mat-raised-button routerLink="/start" routerLinkActive="active" (click)="exit()">Exit</a>
+</div>

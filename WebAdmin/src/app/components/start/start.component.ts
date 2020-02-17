@@ -38,7 +38,7 @@ export class StartComponent {
       else {
         this.subscribtion.unsubscribe();
         //this.dialog.open(OurDialogComponent, { data: { body: r.message, title: "Success" } });
-        this._router.navigateByUrl('/stat');
+        
       }
     });
   };

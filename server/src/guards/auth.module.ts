@@ -4,20 +4,23 @@ import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { PassportModule } from '@nestjs/passport';
 import { UsersModule } from '../dal/user/users.module';
+import { WsAuthGuard } from './strategies/jwt.strategy';
 
+const passportModule = PassportModule.register({ defaultStrategy: 'jwt', session: true });
 
 @Module({
   imports: [
-  PassportModule.register({ defaultStrategy: 'jwt', session: false }),
+    //PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({
-      secretOrPrivateKey: 'secretkeyformytrainerapp',
+      secret: 'secretkeyformytrainerapp',
       signOptions: {
         expiresIn: '1m'
       }
     }),
+    passportModule,
     UsersModule
   ],
-  exports: [AuthService],
-  providers: [AuthService, JwtStrategy]
+  exports: [AuthService, passportModule],
+  providers: [AuthService, JwtStrategy, WsAuthGuard]
 })
-export class AuthModule {}
+export class AuthModule { }

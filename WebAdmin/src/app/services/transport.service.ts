@@ -17,6 +17,7 @@ export default class TransportService {
 
   getStat() {
     this.socket.emit('get-stat');
+    console.log(this.socket);
     return this.socket.fromEvent('get-stat');
   }
 }

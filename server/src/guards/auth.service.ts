@@ -42,14 +42,23 @@ export class AuthService {
         }
     }
 
+    validateToken(token: string): Boolean | String {
+        try {
+            this.jwtService.verify(token);
+            return true;
+        } catch (error) {
+            return error.name;
+        }
+    }
+
     createJwtPayload(user) {
         let data: JwtPayload = {
             email: user.email
         };
         let jwt = this.jwtService.sign(data);
         return {
-             expiresIn: new Date(),
-             token: jwt
+            expiresIn: '1m',
+            token: jwt
         }
     }
 
@@ -64,7 +73,7 @@ export class AuthService {
             return {
                 status: true,
                 message: "User has been submitted successfully!",
-                data: {id: existing._id, role: existing.role, token: token}
+                data: { id: existing._id, role: existing.role, token: token }
             };
         }
         catch (err) {

@@ -25,6 +25,12 @@ export class UsersService {
         return user;
     }
 
+    async findByID(_id: string): Promise<User | null> {
+        const user = await this.userModel.findOne({ _id: _id }, function (err, docs) {
+        }).exec();
+        return user;
+    }
+
     // async login(user: UserDTO) {
     //     const existing = await this.findByEmail(user.email);
     //     if (!existing) {

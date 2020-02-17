@@ -29,7 +29,14 @@ import { LanguagesComponent } from './components/languages/languages.component';
 import { DictionariesComponent } from './components/dictionaries/dictionaries.component';
 import { EditComponent } from './components/edit/edit.component';
 
-const config: SocketIoConfig = { url: 'http://localhost:3000', options: {query: {token: sessionStorage.getItem('token')}} };
+// const config: SocketIoConfig = { url: 'http://localhost:3000', options: {query: function(){
+//   return {
+//      token: sessionStorage.getItem('token')
+// }}}};
+
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {query: {token: sessionStorage.getItem('token')}}};
+
+
 
 @NgModule({
   declarations: [

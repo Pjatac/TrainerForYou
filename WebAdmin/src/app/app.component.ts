@@ -13,6 +13,11 @@ export class AppComponent implements OnInit{
   constructor(private _guard: GuardService) {}
 
   ngOnInit() {
-    this._guard.getStatus().subscribe(resp => this._guard.setStatus(resp));
+    this._guard.getStatus().subscribe(resp => {
+      console.log(`Get status changed on ${new Date}`);
+      this._guard.setStatus(resp);
+    // if (resp.status === false)
+      // this.dialog.open(OurDialogComponent, { data: { body: resp.message, title: "Getting trouble..." } });
+    });
   }
 }
